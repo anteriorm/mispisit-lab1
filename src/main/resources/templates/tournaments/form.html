@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Новый турнир — VR-Tourney</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px;
+               margin: 40px auto; padding: 20px; color: #000; }
+        nav a { margin-right: 15px; color: #0044cc; }
+        label { display: block; margin-top: 12px; font-weight: bold; }
+        input, select { width: 100%; padding: 8px; margin-top: 4px;
+                        box-sizing: border-box; }
+        button { margin-top: 20px; padding: 10px 20px; cursor: pointer; }
+    </style>
+</head>
+<body>
+<nav>
+    <a th:href="@{/}">Главная</a>
+    <a th:href="@{/tournaments}">Турниры</a>
+</nav>
+<hr>
+
+<h1>Создание турнира</h1>
+
+<form th:action="@{/tournaments/new}" th:object="${tournament}" method="post">
+    <label>Название турнира</label>
+    <input type="text" th:field="*{title}" required maxlength="80">
+
+    <label>Дисциплина VR</label>
+    <select th:field="*{discipline}">
+        <option value="Beat Saber">Beat Saber</option>
+        <option value="Eleven">Eleven Table Tennis</option>
+        <option value="Creed">Creed</option>
+        <option value="Pistol Whip">Pistol Whip</option>
+    </select>
+
+    <label>Формат</label>
+    <select th:field="*{format}">
+        <option value="1x1">1x1</option>
+        <option value="2x2">2x2</option>
+        <option value="Группы + плей-офф">Группы + плей-офф</option>
+    </select>
+
+    <label>Дата проведения</label>
+    <input type="date" th:field="*{date}" required>
+
+    <button type="submit">Создать турнир</button>
+</form>
+</body>
+</html>

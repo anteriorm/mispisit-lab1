@@ -12,8 +12,16 @@ public class HomeController {
         model.addAttribute("title", "VR-Tourney");
         model.addAttribute("description",
                 "Система управления турнирной сеткой VR-спорта");
-        model.addAttribute("version", "0.0.1");
+        model.addAttribute("version", "0.0.2");
         model.addAttribute("status", "Разработка продолжается");
         return "index";
+    }
+
+    @GetMapping("/access-denied")
+    public String accessDenied(Model model) {
+        model.addAttribute("reason",
+                "Создавать турниры и управлять ими может только организатор. " +
+                        "Войдите с учётной записью организатора, чтобы продолжить.");
+        return "error/access-denied";
     }
 }

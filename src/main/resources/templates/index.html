@@ -4,33 +4,31 @@
     <meta charset="UTF-8">
     <title th:text="${title}">VR-Tourney</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            background: #f5f7fa;
-            color: #000000;
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin: 0.3em 0;
-            color: #000000;
-        }
-        p {
-            font-size: 1.2rem;
-            margin: 0.3em 0;
-            color: #000000;
-        }
+        body { font-family: Arial, sans-serif; max-width: 720px;
+               margin: 40px auto; padding: 20px; color: #000; }
+        nav a { margin-right: 15px; color: #0044cc; }
+        h1 { margin-top: 0; }
+        .card { border: 1px solid #ccc; padding: 15px; margin: 10px 0;
+                border-radius: 6px; }
     </style>
 </head>
 <body>
+<nav>
+    <a th:href="@{/}">Главная</a>
+    <a th:href="@{/tournaments}">Турниры</a>
+    <a th:href="@{/tournaments/new}">Создать турнир</a>
+    <a th:href="@{/tournaments/admin-panel}">Панель администратора</a>
+</nav>
+<hr>
+
 <h1 th:text="${title}">VR-Tourney</h1>
 <p th:text="${description}">Описание</p>
-<p th:text="'Версия ' + ${version}">Версия 0.0.1</p>
+<p th:text="'Версия ' + ${version}">Версия 0.0.2</p>
 <p th:text="${status}">Разработка продолжается</p>
+
+<div class="card">
+    <p>Это каркас информационной системы. Используйте меню выше,
+        чтобы перейти к доступным действиям.</p>
+</div>
 </body>
 </html>

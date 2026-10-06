@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Доступ запрещён — VR-Tourney</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 640px;
+               margin: 40px auto; padding: 20px; color: #000; }
+        nav a { margin-right: 15px; color: #0044cc; }
+        .error-box { border: 2px solid #c00; background: #fee;
+                     padding: 20px; border-radius: 6px; margin-top: 20px; }
+        h1 { color: #c00; margin-top: 0; }
+    </style>
+</head>
+<body>
+<nav>
+    <a th:href="@{/}">Главная</a>
+    <a th:href="@{/tournaments}">Турниры</a>
+</nav>
+<hr>
+
+<div class="error-box">
+    <h1>Отказано в доступе</h1>
+    <p><strong>Что вы пытались сделать:</strong>
+        открыть панель администратора системы VR-Tourney.</p>
+    <p><strong>Почему система отказала:</strong></p>
+    <p th:text="${reason}">Причина</p>
+    <p>Вернитесь на <a th:href="@{/}">главную страницу</a>
+        или откройте <a th:href="@{/tournaments}">список турниров</a>.</p>
+</div>
+</body>
+</html>
