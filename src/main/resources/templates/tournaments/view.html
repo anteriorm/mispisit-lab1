@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${tournament.title} + ' — VR-Tourney'">Турнир</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 640px;
+               margin: 40px auto; padding: 20px; color: #000; }
+        nav a { margin-right: 15px; color: #0044cc; }
+        .field { margin: 8px 0; }
+        .label { font-weight: bold; }
+    </style>
+</head>
+<body>
+<nav>
+    <a th:href="@{/}">Главная</a>
+    <a th:href="@{/tournaments}">Турниры</a>
+    <a th:href="@{/tournaments/new}">Создать турнир</a>
+</nav>
+<hr>
+
+<h1 th:text="${tournament.title}">Название</h1>
+
+<div class="field">
+    <span class="label">Дисциплина:</span>
+    <span th:text="${tournament.discipline}">Beat Saber</span>
+</div>
+<div class="field">
+    <span class="label">Формат:</span>
+    <span th:text="${tournament.format}">1x1</span>
+</div>
+<div class="field">
+    <span class="label">Дата:</span>
+    <span th:text="${tournament.date}">2026-11-15</span>
+</div>
+<div class="field">
+    <span class="label">ID:</span>
+    <span th:text="${tournament.id}">1</span>
+</div>
+</body>
+</html>
