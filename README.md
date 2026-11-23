@@ -12,7 +12,7 @@
 
 Ветка: lab3
 
-Pull Request: [добавить фактическую ссылку на свой PR из lab3 в main на GitHub]
+Pull Request: https://github.com/anteriorm/mispisit-lab1/pull/1
 
 Образ: `ghcr.io/anteriorm/mispisit-lab1:0.0.3` (GitHub Container Registry).
 
