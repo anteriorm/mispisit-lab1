@@ -9,7 +9,7 @@
         <p><a th:href="@{/tournaments/{id}(id=${notification.tournament.id})}"
               th:text="${notification.tournament.title}">Карточка турнира</a></p>
         <p th:text="${notification.status == 'NEW' ? 'Новое' : notification.status}">Новое</p>
-        <time th:datetime="${notification.createdAt}" th:text="${notification.createdAt}"></time>
+        <time th:datetime="${notification.createdAt}" th:text="${notificationTime}"></time>
     </article>
 </section>
 </html>
