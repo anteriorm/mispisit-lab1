@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru" xmlns:th="http://www.thymeleaf.org" th:fragment="page(title, content)">
+<html lang="ru" data-bs-theme="dark" xmlns:th="http://www.thymeleaf.org" th:fragment="page(title, content)">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,10 +9,10 @@
 </head>
 <body>
 <header class="site-header">
-    <nav class="container d-flex flex-wrap align-items-center gap-3 py-3" aria-label="Основная навигация">
+    <nav class="d-flex flex-column gap-2 p-4" aria-label="Основная навигация">
         <a class="brand" th:href="@{/}">VR-Tourney</a>
-        <span class="badge text-bg-light">0.0.4</span>
-        <div class="nav ms-md-auto">
+        <span class="version align-self-start">0.0.4</span>
+        <div class="nav flex-column gap-1 mt-3">
             <a class="nav-link" th:href="@{/}">Главная</a>
             <a class="nav-link" th:href="@{/tournaments}">Турниры</a>
             <a class="nav-link" th:href="@{/tournaments/new}">Создать турнир</a>
@@ -20,6 +20,6 @@
         </div>
     </nav>
 </header>
-<main class="container py-5" th:insert="${content}"></main>
+<main class="workspace p-4 p-lg-5" th:insert="${content}"></main>
 </body>
 </html>
