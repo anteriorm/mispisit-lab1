@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: page('Турниры', ~{::section})}">
+<section>
+    <div class="d-flex flex-wrap gap-3 align-items-center justify-content-between mb-4">
+        <h1 class="mb-0">Список турниров</h1>
+        <a class="btn btn-primary" th:href="@{/tournaments/new}">Создать турнир</a>
+    </div>
+    <div class="panel empty-state p-4 p-lg-5" th:if="${#lists.isEmpty(tournaments)}">
+        <h2 class="h4">Турниров пока нет</h2>
+        <p class="text-secondary mb-0">Создайте первый турнир, чтобы он появился в списке.</p>
+    </div>
+    <div class="panel table-responsive" th:unless="${#lists.isEmpty(tournaments)}">
+        <table class="table table-hover align-middle mb-0">
+            <thead>
+            <tr>
+                <th>ID</th><th>Название</th><th>Дисциплина</th>
+                <th>Формат</th><th>Дата</th><th>Карточка</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="t : ${tournaments}">
+                <td th:text="${t.id}">1</td>
+                <td th:text="${t.title}">Название</td>
+                <td th:text="${t.discipline}">Beat Saber</td>
+                <td th:text="${t.format}">1x1</td>
+                <td th:text="${t.date}">2026-11-15</td>
+                <td><a th:href="@{/tournaments/{id}(id=${t.id})}">Открыть</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+</html>
