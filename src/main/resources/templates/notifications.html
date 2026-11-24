@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: page('Уведомления', ~{::section})}">
+<section>
+    <h1>Уведомления</h1>
+    <p class="text-body-secondary" th:if="${notification == null}">Пока нет уведомлений.</p>
+    <article class="card p-3" th:if="${notification != null}">
+        <h2 class="h5">Создан турнир</h2>
+        <p><a th:href="@{/tournaments/{id}(id=${notification.tournament.id})}"
+              th:text="${notification.tournament.title}">Карточка турнира</a></p>
+        <p th:text="${notification.status == 'NEW' ? 'Новое' : notification.status}">Новое</p>
+        <time th:datetime="${notification.createdAt}" th:text="${notification.createdAt}"></time>
+    </article>
+</section>
+</html>

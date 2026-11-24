@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: page(${tournament.title}, ~{::section})}">
+<section class="panel narrow p-4 p-md-5">
+    <a class="d-inline-block mb-3" th:href="@{/tournaments}">← К списку турниров</a>
+    <h1 class="mb-4" th:text="${tournament.title}">Название</h1>
+    <dl class="row mb-0">
+        <dt class="col-sm-4">Дисциплина</dt><dd class="col-sm-8" th:text="${tournament.discipline}"></dd>
+        <dt class="col-sm-4">Формат</dt><dd class="col-sm-8" th:text="${tournament.format}"></dd>
+        <dt class="col-sm-4">Дата</dt><dd class="col-sm-8" th:text="${tournament.date}"></dd>
+        <dt class="col-sm-4">ID</dt><dd class="col-sm-8" th:text="${tournament.id}"></dd>
+    </dl>
+</section>
+</html>

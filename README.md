@@ -1,28 +1,32 @@
-# VR-Tourney
+# VR-Tourney — лабораторная работа №5
 
-Система управления турнирной сеткой VR-спорта.
-
-**Лабораторная работа №1**  
-Дисциплина: Методы и средства проектирования информационных систем  
-Студент: Клянченков М.А., гр. ИСТбд-41
-
-## Стек
-
-- Java 21 (LTS)
-- Spring Boot 4.1.1 (Web, Thymeleaf)
-- Maven 3.9
-- Apache Kafka (в стеке проекта, подключается на следующих этапах)
-- Docker (multi-platform: `linux/amd64`, `linux/arm64`)
-
-## Образ
-
-Опубликован в GitVerse: `gitverse.ru/anteriorm/mispisit-lab1:0.0.1`
-
-Поддерживаются две архитектуры: **Intel/AMD** и **ARM** (Apple Silicon, ARM-серверы).  
-Docker автоматически выбирает нужный вариант под платформу пользователя.
+После создания турнира участник видит на странице «Уведомления» сообщение
+со статусом «Новое» и ссылкой на карточку турнира. Турнир и уведомление
+сохраняются в одной транзакции. Приложение создаёт таблицу
+`tournament_notifications` при запуске через `schema.sql`.
 
 ## Запуск
 
-```bash
-docker pull gitverse.ru/anteriorm/mispisit-lab1:0.0.1
-docker run --rm -p 8080:8080 gitverse.ru/anteriorm/mispisit-lab1:0.0.1
+Репозиторий: https://github.com/anteriorm/mispisit-lab1
+Ветка: lab5
+Pull Request: добавить ссылку после открытия PR из lab5 в main.
+Образ: ghcr.io/anteriorm/mispisit-lab1:0.0.5
+
+После публикации ветки и публичного образа:
+
+```powershell
+git clone -b lab5 https://github.com/anteriorm/mispisit-lab1.git
+cd mispisit-lab1
+docker compose up -d
+```
+
+Откройте http://localhost:8080 и перейдите в «Уведомления». Если турниры
+ещё не создавались в версии 0.0.5, экран пуст. Создайте турнир и вернитесь
+в «Уведомления». Ссылка в новом сообщении откроет его карточку.
+
+## Публикация образа
+
+```powershell
+docker buildx build --platform linux/amd64 -t ghcr.io/anteriorm/mispisit-lab1:0.0.5 --push .
+docker buildx imagetools inspect ghcr.io/anteriorm/mispisit-lab1:0.0.5
+```
