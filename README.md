@@ -9,7 +9,7 @@
 
 Репозиторий: https://github.com/anteriorm/mispisit-lab1
 Ветка: lab5
-Pull Request: добавить ссылку после открытия PR из lab5 в main.
+Pull Request: https://github.com/anteriorm/mispisit-lab1/pull/3
 Образ: ghcr.io/anteriorm/mispisit-lab1:0.0.5
 
 После публикации ветки и публичного образа:
@@ -23,10 +23,3 @@ docker compose up -d
 Откройте http://localhost:8080 и перейдите в «Уведомления». Если турниры
 ещё не создавались в версии 0.0.5, экран пуст. Создайте турнир и вернитесь
 в «Уведомления». Ссылка в новом сообщении откроет его карточку.
-
-## Публикация образа
-
-```powershell
-docker buildx build --platform linux/amd64 -t ghcr.io/anteriorm/mispisit-lab1:0.0.5 --push .
-docker buildx imagetools inspect ghcr.io/anteriorm/mispisit-lab1:0.0.5
-```
