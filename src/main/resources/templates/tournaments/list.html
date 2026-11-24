@@ -1,49 +1,33 @@
-<!DOCTYPE html>
-<html lang="ru" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Турниры — VR-Tourney</title>
-    <style>
-        body { font-family: Arial, sans-serif; max-width: 800px;
-               margin: 40px auto; padding: 20px; color: #000; }
-        nav a { margin-right: 15px; color: #0044cc; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-        th { background: #f0f0f0; }
-        .empty { color: #900; font-weight: bold; }
-    </style>
-</head>
-<body>
-<nav>
-    <a th:href="@{/}">Главная</a>
-    <a th:href="@{/tournaments}">Турниры</a>
-    <a th:href="@{/tournaments/new}">Создать турнир</a>
-</nav>
-<hr>
-
-<h1>Список турниров</h1>
-
-<p th:if="${#lists.isEmpty(tournaments)}" class="empty">
-    Турниров пока нет. Создайте первый турнир.
-</p>
-
-<table th:unless="${#lists.isEmpty(tournaments)}">
-    <thead>
-    <tr>
-        <th>ID</th><th>Название</th><th>Дисциплина</th>
-        <th>Формат</th><th>Дата</th><th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="t : ${tournaments}">
-        <td th:text="${t.id}">1</td>
-        <td th:text="${t.title}">Название</td>
-        <td th:text="${t.discipline}">Beat Saber</td>
-        <td th:text="${t.format}">1x1</td>
-        <td th:text="${t.date}">2026-11-15</td>
-        <td><a th:href="@{/tournaments/{id}(id=${t.id})}">Открыть</a></td>
-    </tr>
-    </tbody>
-</table>
-</body>
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: page('Турниры', ~{::section})}">
+<section>
+    <div class="d-flex flex-wrap gap-3 align-items-center justify-content-between mb-4">
+        <h1 class="mb-0">Список турниров</h1>
+        <a class="btn btn-primary" th:href="@{/tournaments/new}">Создать турнир</a>
+    </div>
+    <div class="panel empty-state p-5 text-center" th:if="${#lists.isEmpty(tournaments)}">
+        <h2 class="h4">Турниров пока нет</h2>
+        <p class="text-secondary mb-0">Создайте первый турнир, чтобы он появился в списке.</p>
+    </div>
+    <div class="panel table-responsive" th:unless="${#lists.isEmpty(tournaments)}">
+        <table class="table align-middle mb-0">
+            <thead>
+            <tr>
+                <th>ID</th><th>Название</th><th>Дисциплина</th>
+                <th>Формат</th><th>Дата</th><th>Карточка</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="t : ${tournaments}">
+                <td th:text="${t.id}">1</td>
+                <td th:text="${t.title}">Название</td>
+                <td th:text="${t.discipline}">Beat Saber</td>
+                <td th:text="${t.format}">1x1</td>
+                <td th:text="${t.date}">2026-11-15</td>
+                <td><a th:href="@{/tournaments/{id}(id=${t.id})}">Открыть</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
 </html>

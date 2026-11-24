@@ -28,7 +28,7 @@ class VrtourneyApplicationTests {
     @Test void persistsTournamentAndKeepsLab2Routes() throws Exception {
         assertEquals(0L, repository.count());
         assertTrue(get("/tournaments").body().contains("Турниров пока нет"));
-        assertTrue(get("/").body().contains("0.0.3"));
+        assertTrue(get("/").body().contains("0.0.4"));
         assertEquals(302, post("title=VR+Persistence&discipline=Beat+Saber&format=1x1&date=2026-12-01").statusCode());
         Long id = repository.findAll().getFirst().getId();
         try {

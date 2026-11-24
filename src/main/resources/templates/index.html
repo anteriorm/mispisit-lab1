@@ -1,34 +1,11 @@
-<!DOCTYPE html>
-<html lang="ru" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title th:text="${title}">VR-Tourney</title>
-    <style>
-        body { font-family: Arial, sans-serif; max-width: 720px;
-               margin: 40px auto; padding: 20px; color: #000; }
-        nav a { margin-right: 15px; color: #0044cc; }
-        h1 { margin-top: 0; }
-        .card { border: 1px solid #ccc; padding: 15px; margin: 10px 0;
-                border-radius: 6px; }
-    </style>
-</head>
-<body>
-<nav>
-    <a th:href="@{/}">Главная</a>
-    <a th:href="@{/tournaments}">Турниры</a>
-    <a th:href="@{/tournaments/new}">Создать турнир</a>
-    <a th:href="@{/tournaments/admin-panel}">Панель администратора</a>
-</nav>
-<hr>
-
-<h1 th:text="${title}">VR-Tourney</h1>
-<p th:text="${description}">Описание</p>
-<p th:text="'Версия ' + ${version}">Версия 0.0.3</p>
-<p th:text="${status}">Разработка продолжается</p>
-
-<div class="card">
-    <p>Это каркас информационной системы. Используйте меню выше,
-        чтобы перейти к доступным действиям.</p>
-</div>
-</body>
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: page('Главная', ~{::section})}">
+<section class="hero p-4 p-md-5">
+    <h1 class="display-5 fw-bold">Турниры VR-спорта</h1>
+    <p class="lead">Создавайте турниры и просматривайте расписание соревнований.</p>
+    <div class="d-flex flex-wrap gap-2 mt-4">
+        <a class="btn btn-light" th:href="@{/tournaments}">Открыть список турниров</a>
+        <a class="btn btn-outline-light" th:href="@{/tournaments/new}">Создать турнир</a>
+    </div>
+</section>
 </html>

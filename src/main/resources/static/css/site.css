@@ -1,0 +1,19 @@
+body { background: #f3f5fa; color: #191938; }
+.container { max-width: 1080px; }
+.site-header { background: #1c1b35; }
+.brand { color: white; font-size: 1.35rem; font-weight: 800; text-decoration: none; }
+.site-header .nav-link { color: #eeecff; }
+.site-header .nav-link:hover, .site-header .nav-link:focus-visible { background: #38345b; border-radius: .5rem; }
+.hero { background: linear-gradient(120deg, #1c1b35, #514486); color: white; border-radius: 1rem; }
+.panel { background: white; border: 1px solid #dce0ed; border-radius: 1rem; overflow-wrap: anywhere; }
+.panel > .table { min-width: 630px; }
+.narrow { max-width: 740px; }
+.empty-state { border-style: dashed; }
+.btn-primary {
+    --bs-btn-bg: #53418f;
+    --bs-btn-border-color: #53418f;
+    --bs-btn-hover-bg: #40316f;
+    --bs-btn-hover-border-color: #40316f;
+    --bs-btn-active-bg: #40316f;
+    --bs-btn-active-border-color: #40316f;
+}
