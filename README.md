@@ -1,28 +1,26 @@
-# VR-Tourney
+# VR-Tourney — лабораторная работа №4
 
-Система управления турнирной сеткой VR-спорта.
-
-**Лабораторная работа №1**  
-Дисциплина: Методы и средства проектирования информационных систем  
-Студент: Клянченков М.А., гр. ИСТбд-41
-
-## Стек
-
-- Java 21 (LTS)
-- Spring Boot 4.1.1 (Web, Thymeleaf)
-- Maven 3.9
-- Apache Kafka (в стеке проекта, подключается на следующих этапах)
-- Docker (multi-platform: `linux/amd64`, `linux/arm64`)
-
-## Образ
-
-Опубликован в GitVerse: `gitverse.ru/anteriorm/mispisit-lab1:0.0.1`
-
-Поддерживаются две архитектуры: **Intel/AMD** и **ARM** (Apple Silicon, ARM-серверы).  
-Docker автоматически выбирает нужный вариант под платформу пользователя.
+VR-Tourney помогает организатору создавать турниры, а участнику просматривать
+расписание и карточки соревнований. Единый интерфейс работает в Spring Boot.
+Thymeleaf формирует страницы, Bootstrap 5.3.3 оформляет таблицу, форму и кнопки.
+CSS загружается из WebJars внутри приложения. Турниры хранятся в PostgreSQL 16
+через Spring Data JPA.
 
 ## Запуск
 
+- Репозиторий: https://github.com/anteriorm/mispisit-lab1
+- Ветка: `lab4`
+- Pull Request: https://github.com/anteriorm/mispisit-lab1/pull/2
+- Образ: `ghcr.io/anteriorm/mispisit-lab1:0.0.4`.
+
+После публикации ветки и публичного образа выполните:
+
 ```bash
-docker pull gitverse.ru/anteriorm/mispisit-lab1:0.0.1
-docker run --rm -p 8080:8080 gitverse.ru/anteriorm/mispisit-lab1:0.0.1
+git clone -b lab4 https://github.com/anteriorm/mispisit-lab1.git
+cd mispisit-lab1
+docker compose up -d
+```
+
+Откройте http://localhost:8080. Перейдите в «Турниры», создайте турнир
+и откройте его карточку. Пункт «Панель администратора» ведёт на экран отказа.
+База сохраняется в томе dbdata проекта mispisit-klyanchenkov.

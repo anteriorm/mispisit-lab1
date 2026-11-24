@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ru" data-bs-theme="dark" xmlns:th="http://www.thymeleaf.org" th:fragment="page(title, content)">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${title} + ' — VR-Tourney'">VR-Tourney</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/site.css}">
+</head>
+<body>
+<header class="site-header">
+    <nav class="d-flex flex-column gap-2 p-4" aria-label="Основная навигация">
+        <a class="brand" th:href="@{/}">VR-Tourney</a>
+        <span class="version align-self-start">0.0.4</span>
+        <div class="nav flex-column gap-1 mt-3">
+            <a class="nav-link" th:href="@{/}">Главная</a>
+            <a class="nav-link" th:href="@{/tournaments}">Турниры</a>
+            <a class="nav-link" th:href="@{/tournaments/new}">Создать турнир</a>
+            <a class="nav-link" th:href="@{/tournaments/admin-panel}">Панель администратора</a>
+        </div>
+    </nav>
+</header>
+<main class="workspace p-4 p-lg-5" th:insert="${content}"></main>
+</body>
+</html>

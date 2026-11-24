@@ -1,0 +1,93 @@
+body {
+    --bs-body-bg: #151719;
+    --bs-body-color: #f2f1e9;
+    --bs-secondary-color: #bcbdb8;
+    --bs-secondary-rgb: 188, 189, 184;
+    --bs-border-color: #424648;
+    background: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 230px minmax(0, 1fr);
+}
+
+.site-header {
+    background: #101112;
+    border-right: 1px solid #383b3c;
+}
+
+.brand {
+    color: #e2fc63;
+    font-size: 1.55rem;
+    font-weight: 900;
+    letter-spacing: -.06em;
+    text-decoration: none;
+}
+
+.version {
+    font-family: var(--bs-font-monospace);
+    font-size: .8rem;
+    color: #c0c4b4;
+}
+
+.site-header .nav-link {
+    color: #e9ece4;
+    border-left: 2px solid transparent;
+    padding-inline: .75rem;
+}
+
+.site-header .nav-link:hover, .site-header .nav-link:focus-visible {
+    color: #e2fc63;
+    border-left-color: #e2fc63;
+    background: #242721;
+}
+
+.workspace { width: 100%; max-width: 1200px; }
+.workspace h1 { font-weight: 800; letter-spacing: -.035em; }
+
+.hero, .panel {
+    border: 1px solid #424648;
+    background: #202325;
+    overflow-wrap: anywhere;
+}
+
+.hero {
+    border-top: 4px solid #e2fc63;
+    background: repeating-linear-gradient(135deg, transparent 0 14px, #ffffff08 14px 15px), #222623;
+}
+
+.panel > .table {
+    --bs-table-bg: #202325;
+    --bs-table-color: #f2f1e9;
+    --bs-table-hover-bg: #292d2e;
+    min-width: 615px;
+}
+
+.table thead th {
+    color: #e2fc63;
+    background: #111313;
+}
+
+.table td, .table th { padding: .85rem; }
+.workspace a:not(.btn) { color: #e2fc63; }
+.narrow { max-width: 740px; }
+.empty-state { border-left: 4px solid #e2fc63; }
+
+.btn-primary {
+    --bs-btn-color: #111313;
+    --bs-btn-bg: #e2fc63;
+    --bs-btn-border-color: #e2fc63;
+    --bs-btn-hover-color: #111313;
+    --bs-btn-hover-bg: #cbe54e;
+    --bs-btn-hover-border-color: #cbe54e;
+    --bs-btn-active-color: #111313;
+    --bs-btn-active-bg: #cbe54e;
+    --bs-btn-active-border-color: #cbe54e;
+    font-weight: 700;
+}
+
+@media (max-width: 660px) {
+    body { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr; }
+    .site-header { border-right: 0; border-bottom: 1px solid #383b3c; }
+    .site-header .nav { flex-direction: row !important; }
+}
